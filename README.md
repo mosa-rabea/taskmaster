@@ -8,5 +8,15 @@
 * create an all tasks page which has an image .
 * create a back button to navigate you back to the home page.
 
+# Home page :
+<img src="screenshot/home.jpg" height="400" alt="Screenshot"/>
+
+# Add Task page :
+<img src="screenshot/addTask.jpg" height="400" alt="Screenshot"/>
+
+# All Task page :
+<img src="screenshot/allTask.jpg" height="400" alt="Screenshot"/>
+
+
 
 # }
