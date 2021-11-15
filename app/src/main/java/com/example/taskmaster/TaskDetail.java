@@ -17,5 +17,6 @@ public class TaskDetail extends AppCompatActivity {
         String title = intent.getExtras().getString("title");
         TextView titleText = findViewById(R.id.detailPageTitle);
         titleText.setText(title);
+
     }
 }

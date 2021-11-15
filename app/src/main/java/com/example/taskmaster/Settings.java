@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferencesEditor;
+    EditText usernameInput;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +26,13 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_LONG).show();
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Settings.this);
-                SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+                 sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Settings.this);
+                 sharedPreferencesEditor = sharedPreferences.edit();
 
-                EditText usernameInput = findViewById(R.id.username);
-                String username = usernameInput.getText().toString();
+                 usernameInput = findViewById(R.id.username);
+                 username = usernameInput.getText().toString();
 
-                sharedPreferencesEditor.putString("username", username);
+                sharedPreferencesEditor.putString("username1", username);
                 sharedPreferencesEditor.apply();
             }
         });
