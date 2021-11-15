@@ -12,13 +12,21 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button addTask , allTasks,Lorem1,Lorem2 ,Lorem3 ,setting;
+    SharedPreferences sharedPreferences;
+    String username;
+    TextView usernameField;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-        Button addTask = (Button) findViewById(R.id.addTask);
+         addTask = (Button) findViewById(R.id.addTask);
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button allTasks = (Button) findViewById(R.id.allTasks);
+         allTasks = (Button) findViewById(R.id.allTasks);
         allTasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,46 +45,55 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button presentation = findViewById(R.id.presentationButton);
-        presentation.setOnClickListener(new View.OnClickListener() {
+
+
+        // Lorem-------------------//
+         Lorem1 = findViewById(R.id.loremButton1);
+        Lorem1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String presentationTitle = presentation.getText().toString();
-                Intent goToPresentationDetails = new Intent(MainActivity.this, TaskDetail.class);
-                goToPresentationDetails.putExtra("title",presentationTitle);
-                startActivity(goToPresentationDetails);
+
+                String loremText1=Lorem1.getText().toString();
+                Intent goToLorem1=new Intent(MainActivity.this,TaskDetail.class);
+                goToLorem1.putExtra("title",loremText1);
+                startActivity(goToLorem1);
             }
         });
 
 
-        Button codeChallenge = findViewById(R.id.codeChallengeButton);
-        codeChallenge.setOnClickListener(new View.OnClickListener() {
+         Lorem2 = findViewById(R.id.loremButton2);
+        Lorem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String codeChallengeTitle = codeChallenge.getText().toString();
-                Intent goToCodeChallengeDetails = new Intent(MainActivity.this, TaskDetail.class);
-                goToCodeChallengeDetails.putExtra("title",codeChallengeTitle);
-                startActivity(goToCodeChallengeDetails);
+                String loremText2 = Lorem2.getText().toString();
+                Intent goToLorem2 = new Intent(MainActivity.this, TaskDetail.class);
+                goToLorem2.putExtra("title",loremText2);
+                startActivity(goToLorem2);
+
             }
+
         });
 
 
 
-        Button solveLab = findViewById(R.id.solveButton);
-        solveLab.setOnClickListener(new View.OnClickListener() {
+
+         Lorem3 = findViewById(R.id.loremButton3);
+        Lorem3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String labName = solveLab.getText().toString();
-                Intent goToLabPage = new Intent(MainActivity.this, TaskDetail.class);
-                goToLabPage.putExtra("title",labName);
-                startActivity(goToLabPage);
+                String loremText3 = Lorem3.getText().toString();
+                Intent goToLorem3 = new Intent(MainActivity.this, TaskDetail.class);
+                goToLorem3.putExtra("title",loremText3);
+                startActivity(goToLorem3);
+
 
             }
         });
 
+        // Lorem-------------------//
 
 
-        Button setting = findViewById(R.id.settingsButton);
+         setting = findViewById(R.id.settingsButton);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,10 +109,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-        String username = sharedPreferences.getString("username", "userName");
+         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+         username = sharedPreferences.getString("username1", "userName");
 
-        TextView usernameField = findViewById(R.id.userNameView);
+         usernameField = findViewById(R.id.userNameView);
         usernameField.setText(username );
     }
 }

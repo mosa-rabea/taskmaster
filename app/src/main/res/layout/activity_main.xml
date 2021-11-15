@@ -44,7 +44,7 @@
         app:layout_constraintVertical_bias="0.086" />
 
     <Button
-        android:id="@+id/presentationButton"
+        android:id="@+id/loremButton1"
         android:layout_width="212dp"
         android:layout_height="56dp"
         android:text="Lorem Ipsum 01"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.201" />
 
     <Button
-        android:id="@+id/solveButton"
+        android:id="@+id/loremButton3"
         android:layout_width="212dp"
         android:layout_height="56dp"
         android:layout_marginTop="32dp"
@@ -65,11 +65,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/codeChallengeButton"
+        app:layout_constraintTop_toBottomOf="@+id/loremButton2"
         app:layout_constraintVertical_bias="0.178" />
 
     <Button
-        android:id="@+id/codeChallengeButton"
+        android:id="@+id/loremButton2"
         android:layout_width="212dp"
         android:layout_height="56dp"
         android:layout_marginTop="36dp"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/presentationButton"
+        app:layout_constraintTop_toBottomOf="@+id/loremButton1"
         app:layout_constraintVertical_bias="0.011" />
 
     <Button
