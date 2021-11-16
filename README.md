@@ -17,8 +17,17 @@
 
 * add a setting page which the user can change his username from there.
 
-# Home page :
-<img src="screenshot/home2.jpg" height="400" alt="Screenshot"/>
+
+## changes for today : lab28 :
+
+* add a recycle view to show the tasks dynamically in home page. 
+
+# Home page with Recycle View1:
+<img src="screenshot/home3.jpg" height="400" alt="Screenshot"/>
+
+
+# Home page with Recycle View1:
+<img src="screenshot/home31.jpg" height="400" alt="Screenshot"/>
 
 # Add Task page :
 <img src="screenshot/addTask.jpg" height="400" alt="Screenshot"/>
