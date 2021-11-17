@@ -3,6 +3,7 @@ package com.example.taskmaster;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +12,7 @@ import android.preference.PreferenceManager;
 import android.view.*;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        Intent goToAddTask = new Intent(MainActivity.this, AddTask.class);
+                Intent goToAddTask = new Intent(MainActivity.this, AddTask.class);
                 startActivity(goToAddTask);
             }
         });
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         Button setting = findViewById(R.id.settingsButton);
         setting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,19 +56,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        List<Task> allTasksData = new ArrayList<>();
-        allTasksData.add(new Task("Task_01","this is the Task_01 body","new"));
-        allTasksData.add(new Task("Task_02","this is the Task_02 body","new"));
-        allTasksData.add(new Task("Task_03","this is the Task_03 body","new"));
-        allTasksData.add(new Task("Task_04","this is the Task_04 body","new"));
-        allTasksData.add(new Task("Task_05","this is the Task_04 body","new"));
-        allTasksData.add(new Task("Task_06","this is the Task_05 body","new"));
-        allTasksData.add(new Task("Task_07","this is the Task_07 body","new"));
-        allTasksData.add(new Task("Task_08","this is the Task_08 body","new"));
+        AppDatabase db =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "taskMaster").allowMainThreadQueries().build();
+        TaskDao userDao = db.taskDao();
+
+
+        List<Task> tasks = userDao.getAll();
 
         RecyclerView allTasksRecuclerView = findViewById(R.id.tasksRecucleView);
         allTasksRecuclerView.setLayoutManager(new LinearLayoutManager(this));
-        allTasksRecuclerView.setAdapter(new TaskAdapter(allTasksData));
+        allTasksRecuclerView.setAdapter(new TaskAdapter(tasks));
 
     }
 

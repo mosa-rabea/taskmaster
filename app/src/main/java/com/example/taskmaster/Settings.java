@@ -11,10 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor sharedPreferencesEditor;
-    EditText usernameInput;
-    String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +22,14 @@ public class Settings extends AppCompatActivity {
         saveUsernameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Done!", Toast.LENGTH_LONG).show();
-                 sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Settings.this);
-                 sharedPreferencesEditor = sharedPreferences.edit();
+                Toast.makeText(getApplicationContext(), "Saved!", Toast.LENGTH_LONG).show();
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Settings.this);
+                SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
 
-                 usernameInput = findViewById(R.id.username);
-                 username = usernameInput.getText().toString();
+                EditText usernameField = findViewById(R.id.usernameField);
+                String username = usernameField.getText().toString();
 
-                sharedPreferencesEditor.putString("username1", username);
+                sharedPreferencesEditor.putString("username", username);
                 sharedPreferencesEditor.apply();
             }
         });

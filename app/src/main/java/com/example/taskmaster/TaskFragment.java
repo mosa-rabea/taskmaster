@@ -25,7 +25,6 @@ public class TaskFragment extends Fragment {
     private String mTitle;
     private String mBody;
     private String mState;
-
     public TaskFragment() {
         // Required empty public constructor
     }
