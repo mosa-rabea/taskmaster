@@ -22,6 +22,17 @@
 
 * add a recycle view to show the tasks dynamically in home page. 
 
+## changes for today : lab28 :
+
+* a data base added, the data now is stored in the database.
+
+* added a click functionality on the tasks on main page to navigate you to task details page.
+
+* when adding a new task from add task page the task will be stored in the data base.
+
+# Home page with Room:
+<img src="screenshot/home4.jpg" height="400" alt="Screenshot"/>
+
 # Home page with Recycle View1:
 <img src="screenshot/home3.jpg" height="400" alt="Screenshot"/>
 
@@ -38,16 +49,7 @@
 # settings page :
 <img src="screenshot/settings.jpg" height="400" alt="Screenshot"/>
 
-# Lorem1 page :
-<img src="screenshot/1.jpg" height="400" alt="Screenshot"/>
-
-# Lorem2 page :
-<img src="screenshot/2.jpg" height="400" alt="Screenshot"/>
-
-# Lorem1 page :
-<img src="screenshot/3.jpg" height="400" alt="Screenshot"/>
-
-
-
+# Task details page :
+<img src="screenshot/taskD.jpg" height="400" alt="Screenshot"/>
 
 # }
