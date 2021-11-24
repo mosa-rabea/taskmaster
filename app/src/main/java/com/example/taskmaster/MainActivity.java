@@ -9,10 +9,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.*;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
+import com.amplifyframework.datastore.generated.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +28,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.addPlugin(new AWSDataStorePlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("Tutorial", "Initialized Amplify");
+        } catch (AmplifyException failure) {
+            Log.e("Tutorial", "Could not initialize Amplify", failure);
+        }
+        Amplify.DataStore.observe(Task.class,
+                started -> Log.i("Tutorial", "Observation began."),
+                change -> Log.i("Tutorial", change.item().toString()),
+                failure -> Log.e("Tutorial", "Observation failed.", failure),
+                () -> Log.i("Tutorial", "Observation complete.")
+        );
 
         Button addTask = (Button) findViewById(R.id.addTask);
         addTask.setOnClickListener(new View.OnClickListener() {
@@ -56,11 +79,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        AppDatabase db =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "taskMaster").allowMainThreadQueries().build();
-        TaskDao userDao = db.taskDao();
+//        AppDatabase db =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "taskMaster").allowMainThreadQueries().build();
+//        TaskDao userDao = db.taskDao();
 
 
-        List<Task> tasks = userDao.getAll();
+        List<Task> tasks = new ArrayList<>();
+        Amplify.DataStore.query(
+                Task.class,
+                items -> {
+                    while (items.hasNext()) {
+                        Task item = items.next();
+                        tasks.add(item);
+                        Log.i("Amplify", "Id " + item.getId());
+                    }
+                },
+                failure -> Log.e("Amplify", "Could not query DataStore", failure)
+        );
 
         RecyclerView allTasksRecuclerView = findViewById(R.id.tasksRecucleView);
         allTasksRecuclerView.setLayoutManager(new LinearLayoutManager(this));
