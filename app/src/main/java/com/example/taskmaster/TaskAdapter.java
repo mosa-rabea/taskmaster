@@ -9,8 +9,6 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amplifyframework.datastore.generated.model.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +35,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
                 @Override
                 public void onClick(View v) {
                     Intent toDetailsPage = new Intent(v.getContext(),TaskDetail.class);
-                    toDetailsPage.putExtra("id",task.getId());
+                    toDetailsPage.putExtra("id",task.id);
                     v.getContext().startActivity(toDetailsPage);
                 }
             });
@@ -58,7 +56,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
         Button taskButton = holder.itemView.findViewById(R.id.taskFragmentButton);
 
-        taskButton.setText(holder.task.getTitle());
+        taskButton.setText(holder.task.title);
 
 
     }
