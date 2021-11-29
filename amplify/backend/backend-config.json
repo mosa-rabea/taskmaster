@@ -1,0 +1,21 @@
+{
+  "api": {
+    "mosafromstart": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 360,
+              "apiKeyExpirationDate": "2022-11-24T12:54:12.225Z",
+              "description": "description"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  }
+}
