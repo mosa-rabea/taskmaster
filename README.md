@@ -20,7 +20,7 @@
 
 ## changes for today : lab28 :
 
-* add a recycle view to show the tasks dynamically in home page. 
+* add a recycle view to show the tasks dynamically in home page.
 
 ## changes for today : lab28 :
 
@@ -53,3 +53,7 @@
 <img src="screenshot/taskD.jpg" height="400" alt="Screenshot"/>
 
 # }
+
+# lab32 change:
+* installed amplify service in the application.
+* change the database from the locally Room database , to the cloud database in the graphQL API.
