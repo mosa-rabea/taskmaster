@@ -1,13 +1,13 @@
 package com.example.taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.List;
+import android.widget.Toast;
 
 public class TaskDetail extends AppCompatActivity {
 
@@ -16,20 +16,25 @@ public class TaskDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_detail);
 
-        AppDatabase db =  Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "taskMaster").allowMainThreadQueries().build();
-        TaskDao userDao = db.taskDao();
+        Button goHomeButtonDetail = findViewById(R.id.homeButtonDetail);
 
+        goHomeButtonDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View V) {
+                Intent goHomeTasks = new Intent(TaskDetail.this, MainActivity.class);
+                startActivity(goHomeTasks);
+            }
+        });
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Intent intent = getIntent();
-
-        Task task = userDao.findById(intent.getExtras().getInt("id"));
-
-
-        TextView titleText = findViewById(R.id.detailPageTitle);
-        TextView state = findViewById(R.id.textView11);
-        TextView desc = findViewById(R.id.textView8);
-
-        titleText.setText(task.title);
-        state.setText(task.state);
-        desc.setText(task.body);
+        String taskName = intent.getExtras().getString("taskName");
+        TextView taskTitle = findViewById(R.id.taskTitleDetail);
+        taskTitle.setText(taskName);
     }
 }

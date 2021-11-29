@@ -1,15 +1,28 @@
 {
-  "mosafromst": {
+  "thaer": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mosafromstart-mosafromst-144231-authRole",
-      "UnauthRoleArn": "arn:aws:iam::987411968625:role/amplify-mosafromstart-mosafromst-144231-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::987411968625:role/amplify-mosafromstart-mosafromst-144231-authRole",
+      "AuthRoleName": "amplify-thaertaskmaster-thaer-210306-authRole",
+      "UnauthRoleArn": "arn:aws:iam::915835842582:role/amplify-thaertaskmaster-thaer-210306-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::915835842582:role/amplify-thaertaskmaster-thaer-210306-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-thaertaskmaster-thaer-210306-deployment",
+      "UnauthRoleName": "amplify-thaertaskmaster-thaer-210306-unauthRole",
+      "StackName": "amplify-thaertaskmaster-thaer-210306",
+      "StackId": "arn:aws:cloudformation:us-east-1:915835842582:stack/amplify-thaertaskmaster-thaer-210306/d4776010-507d-11ec-96a6-12717d05e7c7",
+      "AmplifyAppId": "d3d4e4ba4zjbkh"
+    }
+  },
+  "mosathaer": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-thaertaskmaster-mosathaer-193614-authRole",
+      "UnauthRoleArn": "arn:aws:iam::987411968625:role/amplify-thaertaskmaster-mosathaer-193614-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::987411968625:role/amplify-thaertaskmaster-mosathaer-193614-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-mosafromstart-mosafromst-144231-deployment",
-      "UnauthRoleName": "amplify-mosafromstart-mosafromst-144231-unauthRole",
-      "StackName": "amplify-mosafromstart-mosafromst-144231",
-      "StackId": "arn:aws:cloudformation:us-east-2:987411968625:stack/amplify-mosafromstart-mosafromst-144231/d4a79890-5111-11ec-bacb-0ac3075f8562",
-      "AmplifyAppId": "dx9v4cw65z81h"
+      "DeploymentBucketName": "amplify-thaertaskmaster-mosathaer-193614-deployment",
+      "UnauthRoleName": "amplify-thaertaskmaster-mosathaer-193614-unauthRole",
+      "StackName": "amplify-thaertaskmaster-mosathaer-193614",
+      "StackId": "arn:aws:cloudformation:us-east-2:987411968625:stack/amplify-thaertaskmaster-mosathaer-193614/dcc12040-513a-11ec-98f9-061b0c7bef22",
+      "AmplifyAppId": "d2658slq06349k"
     }
   }
 }

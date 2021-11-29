@@ -1,6 +1,6 @@
 {
   "api": {
-    "mosafromstart": {
+    "thaertaskmaster": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -8,12 +8,15 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 360,
-              "apiKeyExpirationDate": "2022-11-24T12:54:12.225Z",
-              "description": "description"
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
         }
       }
     }

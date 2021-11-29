@@ -1,5 +1,4 @@
 package com.example.taskmaster;
-
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,6 +24,7 @@ public class TaskFragment extends Fragment {
     private String mTitle;
     private String mBody;
     private String mState;
+
     public TaskFragment() {
         // Required empty public constructor
     }
@@ -44,7 +44,7 @@ public class TaskFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, mTitle);
         args.putString(ARG_PARAM2, mBody);
-        args.putString(ARG_PARAM2, mState);
+        args.putString(ARG_PARAM3, mState);
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,8 +57,6 @@ public class TaskFragment extends Fragment {
             mBody = getArguments().getString(ARG_PARAM2);
             mState = getArguments().getString(ARG_PARAM3);
         }
-
-
     }
 
     @Override
