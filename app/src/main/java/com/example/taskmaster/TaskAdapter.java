@@ -4,70 +4,64 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.amplifyframework.datastore.generated.model.Todo;
+import com.amplifyframework.datastore.generated.model.TaskTodo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder>{
-    List<Todo> allTasks = new ArrayList<>();
 
+    List<TaskTodo> tasksList = new ArrayList<TaskTodo>();
 
-    public TaskAdapter(List<Todo> allTasks){
-        this.allTasks = allTasks;
+    public TaskAdapter(List<TaskTodo> tasksList) {
+        this.tasksList = tasksList;
     }
 
-    public static class TaskViewHolder extends RecyclerView.ViewHolder{
-
+    public static class TaskViewHolder extends RecyclerView.ViewHolder {
+        public TaskTodo task;
         View itemView;
-        public Todo task;
-
-
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
 
-            itemView.findViewById(R.id.taskFragmentButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent toDetailsPage = new Intent(v.getContext(),TaskDetail.class);
-                    toDetailsPage.putExtra("title",task.getTitle());
-                    toDetailsPage.putExtra("body",task.getBody());
-                    toDetailsPage.putExtra("state",task.getState());
-                    v.getContext().startActivity(toDetailsPage);
-                }
-            });
+            itemView.setOnClickListener((view -> {
+                Intent goToTaskDetail = new Intent(view.getContext(), TaskDetail.class);
+                goToTaskDetail.putExtra("taskName", task.getTitle());
+                goToTaskDetail.putExtra("taskBody", task.getBody());
+                goToTaskDetail.putExtra("taskState", task.getState());
+                view.getContext().startActivity(goToTaskDetail);
+            }));
         }
     }
+
     @NonNull
     @Override
     public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_task,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_task, parent, false);
         TaskViewHolder taskViewHolder = new TaskViewHolder(view);
         return taskViewHolder;
     }
 
-
     @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        holder.task = allTasks.get(position);
+    public void onBindViewHolder(@NonNull TaskAdapter.TaskViewHolder holder, int position) {
+        holder.task = tasksList.get(position);
+        TextView title = holder.itemView.findViewById(R.id.titleInFrag);
+        TextView body = holder.itemView.findViewById(R.id.bodyInFrag);
+        TextView state = holder.itemView.findViewById(R.id.stateInFrag);
 
-        Button taskButton = holder.itemView.findViewById(R.id.taskFragmentButton);
-
-        taskButton.setText(holder.task.getTitle());
-
-
+        title.setText(holder.task.getTitle());
+        body.setText(holder.task.getBody());
+        state.setText(holder.task.getState());
     }
 
     @Override
     public int getItemCount() {
-        return allTasks.size();
+        return tasksList.size();
     }
 }

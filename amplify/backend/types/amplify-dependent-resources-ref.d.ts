@@ -1,7 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "api": {
-        "mosafromstart": {
-            "GraphQLAPIKeyOutput": "string",
+        "thaertaskmaster": {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
