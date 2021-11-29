@@ -23,6 +23,11 @@
       "StackName": "amplify-thaertaskmaster-mosathaer-193614",
       "StackId": "arn:aws:cloudformation:us-east-2:987411968625:stack/amplify-thaertaskmaster-mosathaer-193614/dcc12040-513a-11ec-98f9-061b0c7bef22",
       "AmplifyAppId": "d2658slq06349k"
+    },
+    "categories": {
+      "auth": {
+        "thaertaskmasterf17c8a97": {}
+      }
     }
   }
 }
